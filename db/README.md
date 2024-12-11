@@ -12,4 +12,4 @@ Documents I use to develop this App
 
 ### Commands
 1. `docker compose --env-file ../api/.env config` - Check config .env file
-2. `docker compose -d --env-file ../api/.env up --detach`
+2. `docker compose --env-file ../api/.env up --detach`

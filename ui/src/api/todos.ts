@@ -3,8 +3,8 @@ import { ITodo } from './interfaces'
 
 const baseUrl = 'api/todos'
 
-const getTodos = (): Promise<ITodo[]> => Axios.get(baseUrl).then(res => res.data)
+const getAll = (): Promise<ITodo[]> => Axios.get(baseUrl).then(res => res.data)
 
 export {
-  getTodos,
+  getAll,
 }

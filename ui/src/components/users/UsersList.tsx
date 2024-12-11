@@ -1,10 +1,10 @@
 import {useQuery} from '@tanstack/react-query'
-import { getTodos } from '../api/todos'
+import { getAll } from '../../api/users'
 
-function Example() {
+function UsersList() {
   const { isPending, error, data } = useQuery({
-    queryKey: ['todos'],
-    queryFn: getTodos,
+    queryKey: ['users'],
+    queryFn: getAll,
   })
 
   if (isPending) return 'Loading...'
@@ -13,14 +13,14 @@ function Example() {
 
   return (
     <div>
-      <h1>Todos</h1>
+      <h1>Users</h1>
       <ul>
-        {data.map(todo => (
-          <li key={todo.name}>{todo.name}</li>
+        {data.map(user => (
+          <li key={user.email}>{`${user.firstName} ${user.email}`}</li>
         ))}
       </ul>
     </div>
   )
 }
 
-export default Example
+export default UsersList

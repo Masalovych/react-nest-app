@@ -1,7 +1,9 @@
-interface ITodo {
+export interface ITodo {
   name: string;
 }
 
-export type {
-  ITodo
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  email: string;
 }

@@ -10,12 +10,31 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
+  create(input: {
+    firstName?: string;
+    lastName?: string;
+    email: string;
+    password: string;
+  }): Promise<User> {
+    const user = this.usersRepository.create({
+      firstName: input.firstName || 'rr',
+      lastName: input.lastName || 'sss',
+      email: input.email,
+      password: input.password,
+    });
+    return this.usersRepository.save(user);
+  }
+
   findAll(): Promise<User[]> {
     return this.usersRepository.find();
   }
 
-  findOne(id: number): Promise<User | null> {
+  findOneById(id: number): Promise<User | null> {
     return this.usersRepository.findOneBy({ id });
+  }
+
+  findOneByEmail(email: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ email });
   }
 
   async remove(id: number): Promise<void> {
